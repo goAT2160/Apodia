@@ -24,6 +24,8 @@ const analytics = getAnalytics(app);
 const auth = getAuth(app)
 
 loginBtn.addEventListener('click', () => {
+  console.log("hello")
+  window.location.href="/home"
   signInWithEmailAndPassword(auth, emailF.nodeValue, pswdF.nodeValue)
   console.log(auth)
 })

@@ -10,6 +10,7 @@ const onSnapshot = require('firebase/firestore').onSnapshot
 require('dotenv').config()
 
 const app = express()
+app.use(express.static('public'))
 app.set('view-engine', 'ejs')
 app.use(express.urlencoded({ extended: false }))
 app.listen(3000)
@@ -28,7 +29,6 @@ const fireApp = initializeApp(firebaseConfig)
 const db = getFirestore(fireApp)
 const auth = getAuth(fireApp)
 
-auth.signOut()
 app.get("/", (req, res) => {
     if (auth.currentUser != null) {
         res.redirect("/home")
